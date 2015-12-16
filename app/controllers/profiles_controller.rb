@@ -7,16 +7,16 @@ class ProfilesController < ApplicationController
     render json: Profile.find(params[:id])
   end
 
-  def create
-    @profile = current_user.create_profile(profile_params)
+  # def create
+  #   @profile = current_user.create_profile(profile_params)
 
-    if @profile.save
-      render json: @profile, status: :created,
-      location: @profile
-    else
-      render json: @profile.errors, status: :unprocessable_entity
-    end
-  end
+  #   if @profile.save
+  #     render json: @profile, status: :created,
+  #     location: @profile
+  #   else
+  #     render json: @profile.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   def update
     if @profile.update(profile_params)
