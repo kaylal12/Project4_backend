@@ -4,7 +4,7 @@ class Profile < ActiveRecord::Base
   has_many :listings
 
   has_attached_file :profile_picture,
-              :path => '/images/:style/:filename.:extension',
+              :path => '/images/:style/:filename',
               :styles => { :medium => "500x500>", :thumb => "300x300>" },
               :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :profile_picture, :content_type => /\Aimage\/.*\Z/
