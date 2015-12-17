@@ -15,8 +15,9 @@ class AuthController < ApplicationController
   # POST /register
   def register
     @user = User.create(credentials)
+    @user.build_profile(profile)
 
-    if @user.valid?
+    if @user.save
       render json: @user, status: :created, location: @user
     else
       render json: @user.errors, status: :unprocessable_entity
@@ -33,11 +34,14 @@ class AuthController < ApplicationController
     end
   end
 
+  private
+
   def credentials
-    params.require(:credentials).permit(:email,
-                                        :password,
-                                        :password_confirmation)
+    params.require(:credentials).permit(:email, :password, :password_confirmation)
   end
 
-  private :credentials
+  def profile
+    params.require(:profile).permit(:first_name, :surname)
+  end
+
 end
