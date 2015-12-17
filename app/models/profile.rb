@@ -14,4 +14,5 @@ class Profile < ActiveRecord::Base
   end
 
   before_post_process :rename_profile_picture
+
 end
