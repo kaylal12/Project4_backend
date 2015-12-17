@@ -1,4 +1,4 @@
-class ListingsController < ApplicationController
+class ListingsController < OpenReadController
   before_action :set_listing, only: [:update, :destroy]
 
   def index

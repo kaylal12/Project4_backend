@@ -1,4 +1,6 @@
 class ProfilesController < ApplicationController
+  before_action :set_profile, only: [:update, :destroy]
+
   def index
     render json: Profile.all
   end
