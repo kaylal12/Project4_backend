@@ -65,16 +65,6 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.middleware.use Rack::Cors do
-      allow do
-        origins '*'
-        resource '*',
-                 headers: :any,
-                 methods: [:options, :get,
-                           :post, :patch, :delete]
-      end
-    end
-
   # Paperclip config, s3 storage
   config.paperclip_defaults = {
   :storage => :s3,
